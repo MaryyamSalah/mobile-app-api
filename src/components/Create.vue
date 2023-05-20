@@ -51,6 +51,7 @@ export default {
                     price:'',
                     description:''
                 }
+
             }
         }
     },
@@ -69,6 +70,8 @@ export default {
                     price:'',
                     description:''
                 }
+
+                this.errorList ='';
 
             }).catch(function(error){
 

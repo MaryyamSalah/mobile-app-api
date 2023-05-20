@@ -30,7 +30,7 @@
         class="btn btn-success">
         Edit</router-link>
        <button type="button" class="btn btn-danger">Delete</button>
-       <router-link to="/"
+       <router-link to="/view"
         class="btn btn-primary">
         View</router-link>
             </td>

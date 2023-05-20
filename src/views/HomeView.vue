@@ -2,9 +2,9 @@
   <div class="container">
     <div class="card">
       <div class="card-header">
-        <h4>Products<router-link to="/product/create"
+        <h4>Products<router-link to="/create"
         class="btn btn-secondary float-end">
-        Add</router-link>
+        Add +</router-link>
         </h4>
       </div>
       <div class="card-body">

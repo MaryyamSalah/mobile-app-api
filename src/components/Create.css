@@ -1,0 +1,72 @@
+.circle-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .circle-button i {
+    pointer-events: none;
+  }
+  
+  /* Optional hover effect */
+  .circle-button:hover {
+    background-color: #0056b3;
+  }
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+  }
+  
+  .toggle-switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: .4s;
+  }
+  
+  .toggle-switch input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  .toggle-switch input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  
+  .status-label {
+    margin-left: 10px;
+  }
+  
+  .status-label.active {
+    color: #2196F3;
+  }

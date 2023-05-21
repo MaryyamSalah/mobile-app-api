@@ -29,7 +29,7 @@
             <router-link to="/"
         class="btn btn-success">
         Edit</router-link>
-       <button type="button" class="btn btn-danger">Delete</button>
+       <button type="button" class="btn btn-danger" @click="deleteProduct(product.id)" >Delete</button>
        <router-link to="/view"
         class="btn btn-primary">
         View</router-link>
@@ -69,6 +69,17 @@ export default {
         // console.log(this.products)
 
       });
+    },
+    deleteProduct(productId){
+      
+      if(confirm('Are you sure, you want to delete this data?')){
+        axios.delete(`https://dummyjson.com/products/${productId}`)
+        .then(res => {
+
+          alert(res.data.message);
+          this.getProducts();
+        });
+      }
     }
   },
 }

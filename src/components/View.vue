@@ -19,7 +19,7 @@
       <p>Loading...</p>
     </div>
   </div> -->
-   <div class="container">
+   <div class="container m-20">
     <div class="row">
       <div class="col-lg-8">
        <img alt="Image 4" class="img-fluid" src="{{ product.images }}">

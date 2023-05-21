@@ -72,11 +72,11 @@ export default {
     methods:{
         addProduct(){
             var mythis =this;
-            axios.post('https://dummyjson.com/products' ,this.model.product)
+            axios.post('https://dummyjson.com/products/add' ,this.model.product)
             .then(res => {
 
                 console.log(res.data)
-                alert(res.data.message);
+                // alert(res.json.message);
 
                 this.model.product = {
                     category:'',

@@ -1,18 +1,23 @@
 <template>
-  <div class="container">
+  <div class="container ">
     <div class="card">
-      <div class="card-header">
-        <h4>Products<router-link to="/create"
+      <div class="card-header ">
+        <h1 class="text-start">Products<router-link to="/create"
         class="btn btn-secondary float-end">
         Add +</router-link>
-        </h4>
+        </h1>
       </div>
-      <div class="card-body">
-        <table class="table table-bordered">
-          <thead>
+      <div class="card-body  bg-light ">
+        <table class="table table-bordered table-striped table-hover table-responsive-sm">
+          <thead class="table-success">
             <tr>
             <th>Status</th>
-            <th>Category Title</th>
+            <th class="mb-3"> <select class="form-select" v-model="selectedCategory" @change="fetchData">
+        <option value="">Select a category</option>
+        <option v-for="(category,index) in categories"  :key="index">
+          {{ category.category}}
+        </option>
+      </select></th>
             <th>Product Name</th>
             <th>Price($)</th>
             <th>Action</th>
@@ -26,15 +31,22 @@
             <td>{{product.title}}</td>
             <td>{{product.price}}</td>
             <td>
+              <div class="row">
+                <div class="col-sm-3">
             <router-link to="/"
         class="btn btn-success">
         Edit</router-link>
+        </div>
+        <div class="col-sm-3 ml-2">
        <button type="button" class="btn btn-danger" @click="deleteProduct(product.id)" >Delete</button>
+       </div>
+       <div class="col-sm-3 ml-2">
        <router-link to="/view"
-        class="btn btn-primary">
+        class="btn btn-info">
         View</router-link>
+        </div>
+              </div>
             </td>
-         
             
             </tr>
           </tbody>
@@ -44,6 +56,7 @@
             </tr>
           </tbody>
         </table>
+         
       </div>
     </div>
   </div>
@@ -56,11 +69,21 @@ export default {
   name:'products' ,
   data(){
     return{
-      products:[]
+      products:[],
+      selectedCategory: '',
+      categories: [],
+      selectedCategories: []
     }
   },
   mounted(){
     this.getProducts();
+     axios.get('https://dummyjson.com/products/categories')
+      .then(response => {
+        this.categories = response.data;
+      })
+      .catch(error => {
+        console.error(error);
+      });
   },
   methods: {
     getProducts(){
@@ -70,6 +93,16 @@ export default {
 
       });
     },
+fetchData() {
+     axios.get(`https://dummyjson.com/products/categories${this.selectedCategory}`)
+        .then(response => {
+          this.selectedCategories = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+},
+    
     deleteProduct(productId){
       
       if(confirm('Are you sure, you want to delete this data?')){
@@ -78,7 +111,14 @@ export default {
 
           alert(res.data.message);
           this.getProducts();
-        });
+        })
+        .catch(function(error){
+          if(error.response){
+            if(error.response.status == 404){
+              alert(error.response.data.message);
+            }
+          }
+        })
       }
     }
   },

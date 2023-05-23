@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container m-20 mt-4 p-5 bg-dark text-white rounded">
          <div class="toggle-status d-flex justify-content-end">
     <label class="toggle-switch top-right-div">
       <input type="checkbox" v-model="isActive" @change="handleToggle">
@@ -7,7 +7,7 @@
     </label>
     <span class="status-label" :class="{ active: isActive }">{{ isActive ? 'Active' : 'Inactive' }}</span>
   </div>
-    <div class="row">
+    <div class="row pt-4">
          
           
 
@@ -16,16 +16,16 @@
                         {{ error[0] }}
                     </li>
                     </ul>
-              <div class="col">
-                  <label for="file-input" class="circle-button">
+              <div class="col d-flex align-items-center justify-content-center">
+                  <label for="file-input" class="circle-button ">
       <i class="fas fa-plus"></i>
       <input id="file-input" type="file" @change="handleFileSelect" accept="image/*" hidden>
     </label>
      <div class="col-lg-8" v-if="selectedImage">
-      <img :src="selectedImage" alt="Selected Image" class="selected-image img-fluid">
+      <img :src="selectedImage" alt="Selected Image" class="selected-image img-fluid float-start">
     </div>
       </div>
-          <div class="col">
+          <div class="col ">
                 <input type="text" placeholder="Category Title" v-model="model.product.category" class="form-control mb-3" />
             </div>
              <div class="col">
@@ -37,10 +37,10 @@
         </div>
     
             <div class="col-md-20">
-                <input type="text" placeholder="Description" v-model="model.product.description" class="form-control mb-3" />
+                <input type="text" placeholder="Description" v-model="model.product.description" class="form-control mb-3 py-4" />
             </div>
-            <div>
-                <button type="button" @click="addProduct" class="btn btn-primary">Add +</button>
+            <div class="d-grid">
+                <button type="button" @click="addProduct" class="btn btn-primary btn-block">Add +</button>
             </div>
         </div>
     

@@ -1,9 +1,9 @@
 <template>
-  <div class="container ">
+  <div class="container">
     <div class="card">
       <div class="card-header ">
         <h1 class="text-start">Products<router-link to="/create"
-        class="btn btn-secondary float-end">
+        class="btn btn-success float-end">
         Add +</router-link>
         </h1>
       </div>
@@ -31,21 +31,19 @@
             <td>{{product.title}}</td>
             <td>{{product.price}}</td>
             <td>
-              <div class="row">
-                <div class="col-sm-3">
+              <div class="btn-group-vertical">
+               
             <router-link to="/"
-        class="btn btn-success">
+        class="btn btn-outline-success btn-sm  ">
         Edit</router-link>
         </div>
-        <div class="col-sm-3 ml-2">
-       <button type="button" class="btn btn-danger" @click="deleteProduct(product.id)" >Delete</button>
-       </div>
-       <div class="col-sm-3 ml-2">
+       
+       <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteProduct(product.id)" >Delete</button>
+      
+       
        <router-link to="/view"
-        class="btn btn-info">
+        class="btn btn-outline-info btn-sm">
         View</router-link>
-        </div>
-              </div>
             </td>
             
             </tr>

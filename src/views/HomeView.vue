@@ -26,14 +26,14 @@
           <tbody v-if="this.products.length > 0">
             <tr v-for="(product, index) in this.products" :key="index">
           
-           <td>{{product.title}}</td>
+           <td>{{product.id}}</td>
             <td>{{product.category}}</td>
             <td>{{product.title}}</td>
             <td>{{product.price}}</td>
             <td>
               <div class="btn-group-vertical">
                
-            <router-link to="/"
+            <router-link :to="{path:'/products/'+ +product.id+'/Edit'}"
         class="btn btn-outline-success btn-sm  ">
         Edit</router-link>
         </div>

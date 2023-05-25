@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import Products from "../components/Products.vue";
 import ProductCreate from "../components/Create.vue";
 import ProductView from "../components/View.vue";
+import ProductEdit from "../components/Edit.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,6 +29,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/create',
     name: 'productCreate' ,
     component :ProductCreate
+
+  },
+  {
+    path: '/products/:id/Edit',
+    name: 'productEdit' ,
+    component :ProductEdit
 
   },
   {

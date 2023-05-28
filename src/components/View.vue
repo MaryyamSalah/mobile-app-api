@@ -1,8 +1,9 @@
 <template>
-   <div class="container m-20 mt-4 p-5 bg-dark text-white rounded">
+   <div class="container m-20 mt-4 mb-4 p-5 bg-dark text-white rounded">
     <div class="row">
       <div class="col-lg-8">
-       <img alt="Image 4" class="img-fluid float-start" src="{{ product.images }}">
+       <!-- <img alt="Image 4" class="img-fluid float-start" src="{{products.image}}"> -->
+       <img :alt="product-pic" class="img-fluid float-start mb-4" :src="`${products.image}`" >
       </div>
       <div class="col-lg-4 text-start">
         <div class="row">
@@ -43,7 +44,6 @@ export default {
  data() {
   return {
     products: [],
-    images :[],
   }
 },
 
@@ -54,7 +54,7 @@ mounted() {
 },
 methods: {
   fetchProductDetails() {
-    axios.get('https://dummyjson.com/products/1')
+    axios.get(' http://localhost:3000/products/1')
       .then(response => {
         this.products = response.data;
         this.images = response.data;

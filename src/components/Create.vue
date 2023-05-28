@@ -72,7 +72,7 @@ export default {
     methods:{
         addProduct(){
             var mythis =this;
-            axios.post('https://dummyjson.com/products/add' ,this.model.product)
+            axios.post(' http://localhost:3000/products/add' ,this.model.product)
             .then(res => {
 
                 console.log(res.data)

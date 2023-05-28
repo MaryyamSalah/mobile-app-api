@@ -82,7 +82,7 @@ export default {
     methods:{
 
         getProductData(id){
-            axios.get(`https://dummyjson.com/products/${id}`).then(res=> {
+            axios.get(` http://localhost:3000/products/${id}`).then(res=> {
               console.log(res.data);
               //error can't find category:(
             //   this.model.product = res.data.product
@@ -102,7 +102,7 @@ export default {
 
         updateProduct(){
             var mythis =this;
-            axios.put(`https://dummyjson.com/products/${this.id}`,this.model.product)
+            axios.put(` http://localhost:3000/products/${this.id}`,this.model.product)
             .then(res => {
 
                 console.log(res.data)

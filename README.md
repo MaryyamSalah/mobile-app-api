@@ -5,7 +5,7 @@ The mobile store's admin panel is a comprehensive platform that enables administ
 Included Libraries:
 - Vue Router
 - Axios
--Bootstrap5
+- Bootstrap5
 
 Product Section:
 - Category title ([dropdown list])
